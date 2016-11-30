@@ -1,5 +1,5 @@
 # Shopify API Wrapper
-By [Zapiet.com](http://www.zapiet.com) - Zapiet - Creators of the Store Pickup + Delivery app.
+forked and adapted from ShopifyExtras/PHP-Shopify-API-Wrapper
 
 ### Installing via Composer
 
