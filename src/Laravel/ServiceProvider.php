@@ -31,16 +31,12 @@ class ServiceProvider extends LaravelServiceProvider {
     public function register()
     {
         $configPath = __DIR__ . '/../config/config.php';
-        $this->mergeConfigFrom($configPath, 'shopify');
+        $this->app['config']->set('shopify', require $configPath);
+
         $this->app->singleton('shopify', function($app) {
 
-            if (isset($app['config']['services']['shopify'])) {
-
-                $config = array_filter($app['config']['services']['shopify']);
-
+                $config = $app['config']['shopify'];
                 return new \Shopify\Client($config);
-
-            } else return new \Shopify\Client();
 
         });
 
