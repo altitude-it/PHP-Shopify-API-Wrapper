@@ -28,7 +28,7 @@ ACCESS_TOKEN='a68981b0b55e3ccc0d916eda3e8dc116'
 
 First you will need to initialise the client like this:
 
-```
+```php
 $client = new Shopify\Client(array(
    "shopUrl" => $shopUrl,
    "X-Shopify-Access-Token" => $accessToken
