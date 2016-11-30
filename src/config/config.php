@@ -9,7 +9,7 @@ return array(
 	|
 	*/
 
-	"shopUrl" => env('SHOP_DOMAIN'),
-	"X-Shopify-Access-Token" => env('ACCESS_TOKEN')
+	"shopUrl" => env('SHOPIFY_SHOP_DOMAIN'),
+	"X-Shopify-Access-Token" => env('SHOPIFY_ACCESS_TOKEN')
 
 );
