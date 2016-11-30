@@ -2,23 +2,26 @@
 By [Zapiet.com](http://www.zapiet.com) - Zapiet - Creators of the Store Pickup + Delivery app.
 
 ### Installing via Composer
-The recommended way to install the wrapper is through
-[Composer](http://getcomposer.org).
 
 ```bash
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
+ composer config repositories.altitudeShopify vcs https://github.com/altitude-it/PHP-Shopify-API-Wrapper
+ composer require Altitude/Shopify-php-api-wrapper:dev-master
+ 
+ ```
+ In the ```config/app.php``` file of the project add the service provider :
+``` 
+        /*
+         * Package Service Providers...
+         */
+       Shopify\Laravel\ServiceProvider::class,
+
 ```
 
-Next, run the Composer command to install the latest stable version of the wrapper:
+In the not committed ```.env``` file of the project add the database setting :
 
-```bash
-composer require shopifyextras/shopify-php-api-wrapper
 ```
-After installing, you need to require Composer's autoloader:
-
-```php
-require 'vendor/autoload.php';
+SHOP_DOMAIN='altify-dev-store.myshopify.com'
+ACCESS_TOKEN='a68981b0b55e3ccc0d916eda3e8dc116'
 ```
 
 ### Getting Started
@@ -35,17 +38,32 @@ $client = new Shopify\Client(array(
 Then you can begin making requests:
 ```
 // Get a list of all products.
-$client->getProducts();
+Shopify::getProducts();
 
 // Get a list of all orders.
-$client->getOrders();
+Shopify::getOrders();
 
 // Get a specific product.
-$client->getProduct(array("id" => $product_id));
+Shopify::getProduct(array("id" => $product_id));
+
+// Add a product .
+$product = array (
+  'product' => 
+  array (
+    'title' => 'Burton Custom Freestyle 151',
+    'body_html' => '<strong>Good snowboard!</strong>',
+    'vendor' => 'Burton',
+    'product_type' => 'Snowboard',
+    'images' => 
+    array (
+      0 => 
+      array (
+        'src' => 'http://example.com/rails_logo.gif',
+      ),
+    ),
+  ),
+);
+Shopify::createProduct($product);
+
 ```
 
-### Bugs & Issues
-If you spot any bugs, please report it using the issue tracker. If you would like to contribute to the project please feel free to make your amends and submit a pull request.
-
-### Professional Services
-Unfortunately we are unable to provide free technical support for the wrapper. If you require this kind of help then please contact us by emailing [support@zapiet.com](mailto:support@zapiet.com).
