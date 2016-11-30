@@ -36,7 +36,7 @@ $client = new Shopify\Client(array(
 ```
 
 Then you can begin making requests:
-```
+```php
 // Get a list of all products.
 Shopify::getProducts();
 
