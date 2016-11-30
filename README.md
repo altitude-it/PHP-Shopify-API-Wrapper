@@ -20,8 +20,8 @@ forked and adapted from ShopifyExtras/PHP-Shopify-API-Wrapper
 In the not committed ```.env``` file of the project add the database setting :
 
 ```
-SHOP_DOMAIN='altify-dev-store.myshopify.com'
-ACCESS_TOKEN='a68981b0b55e3ccc0d916eda3e8dc116'
+SHOP_DOMAIN='<store.myshopify.com>'
+ACCESS_TOKEN='<token>'
 ```
 
 ### Getting Started
