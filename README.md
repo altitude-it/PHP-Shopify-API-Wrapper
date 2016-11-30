@@ -26,13 +26,10 @@ ACCESS_TOKEN='<token>'
 
 ### Getting Started
 
-First you will need to initialise the client like this:
+First you will need to initialise the client like this in a class:
 
 ```php
-$client = new Shopify\Client(array(
-   "shopUrl" => $shopUrl,
-   "X-Shopify-Access-Token" => $accessToken
-));
+use Shopify\Laravel\Facade as Shopify;
 ```
 
 Then you can begin making requests:
