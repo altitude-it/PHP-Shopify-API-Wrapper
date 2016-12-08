@@ -24,14 +24,14 @@ Via composer, inside your laravel app
 
 ```
 
-In the not committed ```.env``` file of the project add the database setting :
+## Getting Started (for a private app)
+
+In the not committed ```.env``` file of the project add the shopify settings of your private app :
 
 ```
 SHOPIFY_SHOP_DOMAIN='<store.myshopify.com>'
-SHOPIFY_ACCESS_TOKEN='<token>'
+SHOPIFY_ACCESS_TOKEN='<password>'
 ```
-
-### Getting Started
 
 First you will need to initialise the client like this in a class:
 
