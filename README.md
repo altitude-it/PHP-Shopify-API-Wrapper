@@ -1,7 +1,14 @@
 # Shopify API Wrapper
 forked and adapted from ShopifyExtras/PHP-Shopify-API-Wrapper
 
-### Installing via Composer
+## Requirement
+
+- laravel 5.3
+
+
+## Install
+
+Via composer, inside your laravel app
 
 ```bash
  composer config repositories.altitudeShopify vcs https://github.com/altitude-it/PHP-Shopify-API-Wrapper
