@@ -68,7 +68,46 @@ return array(
                     "description" => "Comma-separated list of fields to include in the response."
                 )
             )
-        )
+        ),
+        "calculateRefund" => array(
+            "httpMethod" => "POST",
+            "uri" => "/admin/orders/{order_id}/refunds/calculate.json",
+            "summary" => "Calculate a refund.",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "order_id" => array(
+                    "type" => "number",
+                    "location" => "uri",
+                    "description" => "The ID of the order.",
+                    "required" => true
+                ),
+                "refund" => array(
+                    "location" => "json",
+                    "parameters" => array(
+                        "shipping" => array(
+                            "location" => "json",
+                            "parameters" => array(
+                                "full_refund" => array(
+                                    "type" => "boolean",
+                                    "location" => "json",
+                                    "description" => "set to true to refund all remaining shipping."
+                                ),
+                                "amount" => array(
+                                    "type" => "number",
+                                    "location" => "json",
+                                    "description" => "Set specific amount of shipping to refund. Takes precedence over full_refund."
+                                ),
+                            ),
+                        ),
+                        "refund_line_items" => array(
+                            "type" => "string",
+                            "location" => "json",
+                            "description" => "Array of line item IDs and quantities to refund"
+                        )
+                    ),
+                ),
+            ),
+        ),
     ),
 
     /*
