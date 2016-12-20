@@ -15,6 +15,31 @@ return array(
     "operations" => array(
 
         /**
+         *    getRefunds() method
+         *
+         *    reference: http://docs.shopify.com/api/refund
+         */
+        "getRefunds" => array(
+            "httpMethod" => "GET",
+            "uri" => "/admin/orders/{order_id}/refunds.json",
+            "summary" => "Receive a list of refunds for an order.",
+            "responseModel" => "defaultJsonResponse",
+            "parameters" => array(
+                "order_id" => array(
+                    "type" => "number",
+                    "location" => "uri",
+                    "description" => "The ID of the order.",
+                    "required" => true
+                ),
+                "fields" => array(
+                    "type" => "number",
+                    "location" => "query",
+                    "description" => "Comma-separated list of fields to include in the response."
+                )
+            )
+        ),
+
+        /**
          *    getRefund() method
          *
          *    reference: http://docs.shopify.com/api/refund
