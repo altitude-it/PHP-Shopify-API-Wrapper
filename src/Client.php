@@ -6,6 +6,10 @@ use Monolog\Handler\StreamHandler;
 use GuzzleHttp\Client as BaseClient;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 
+use GuzzleHttp\Command\Exception\CommandException;
+use Illuminate\Http\Response;
+
+
 class Client
 {
 	
