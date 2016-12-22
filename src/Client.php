@@ -232,13 +232,20 @@ class Client
         }
         return $description;
     }
-    
-    
+
+
     public function __call($method, $parameters)
     {
-		if (!$this->serviceClient) $this->buildClient();
+        if (!$this->serviceClient) $this->buildClient();
 
-        return call_user_func_array([$this->serviceClient, $method], $parameters);
+        try {
+            $response = call_user_func_array([$this->serviceClient, $method], $parameters);
+            return $response;
+        } catch (CommandException $exception) {
+            $response = $exception->getResponse();
+            return new Response($response->getBody(), $response->getStatusCode());
+        }
+
     }
     
 }
